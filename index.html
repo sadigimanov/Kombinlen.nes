@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kombinlen.nes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="">
+    <main class="main-section">
+
+
+        <h1>👕 Günlük Kombin Seçimi</h1>
+
+
+        <!-- Papaq -->
+        <div class="section" data-type="papag">
+            <h2>Papaq</h2>
+            <input type="file" accept="image/*" class="upload" onchange="uploadImage(event, 'papaq')">
+            <div class="slider">
+                <button class="btn" onclick="prev('papaq')">◀</button>
+                <img id="papaq-display" src="" alt="Papaq seçilməyib">
+                <button class="btn" onclick="next('papaq')">▶</button>
+            </div>
+        </div>
+
+        <!-- Köynək -->
+        <div class="section" data-type="koynek">
+            <h2>Köynək</h2>
+            <input type="file" accept="image/*" class="upload" onchange="uploadImage(event, 'koynek')">
+            <div class="slider">
+                <button class="btn" onclick="prev('koynek')">◀</button>
+                <img id="koynek-display" src="" alt="Köynək seçilməyib">
+                <button class="btn" onclick="next('koynek')">▶</button>
+            </div>
+        </div>
+
+        <!-- Şalvar -->
+        <div class="section" data-type="salvar">
+            <h2>Şalvar</h2>
+            <input type="file" accept="image/*" class="upload" onchange="uploadImage(event, 'salvar')">
+            <div class="slider">
+                <button class="btn" onclick="prev('salvar')">◀</button>
+                <img id="salvar-display" src="" alt="Şalvar seçilməyib">
+                <button class="btn" onclick="next('salvar')">▶</button>
+            </div>
+        </div>
+
+        <!-- Ayaqqabı -->
+        <div class="section" data-type="ayaqqabi">
+            <h2>Ayaqqabı</h2>
+            <input type="file" accept="image/*" class="upload" onchange="uploadImage(event, 'ayaqqabi')">
+            <div class="slider">
+                <button class="btn" onclick="prev('ayaqqabi')">◀</button>
+                <img id="ayaqqabi-display" src="" alt="Ayaqqabı seçilməyib">
+                <button class="btn" onclick="next('ayaqqabi')">▶</button>
+            </div>
+        </div>
+
+        <!-- Çanta -->
+        <div class="section" data-type="canta">
+            <h2>Çanta</h2>
+            <input type="file" accept="image/*" class="upload" onchange="uploadImage(event, 'canta')">
+            <div class="slider">
+                <button class="btn" onclick="prev('canta')">◀</button>
+                <img id="canta-display" src="" alt="Çanta seçilməyib">
+                <button class="btn" onclick="next('canta')">▶</button>
+            </div>
+        </div>
+
+        <!-- Saat -->
+        <div class="section" data-type="saat">
+            <h2>Saat</h2>
+            <input type="file" accept="image/*" class="upload" onchange="uploadImage(event, 'saat')">
+            <div class="slider">
+                <button class="btn" onclick="prev('saat')">◀</button>
+                <img id="saat-display" src="" alt="Saat seçilməyib">
+                <button class="btn" onclick="next('saat')">▶</button>
+            </div>
+        </div>
+
+        <!-- Eynək -->
+        <div class="section" data-type="eynek">
+            <h2>Eynək</h2>
+            <input type="file" accept="image/*" class="upload" onchange="uploadImage(event, 'eynek')">
+            <div class="slider">
+                <button class="btn" onclick="prev('eynek')">◀</button>
+                <img id="eynek-display" src="" alt="Eynək seçilməyib">
+                <button class="btn" onclick="next('eynek')">▶</button>
+            </div>
+        </div>
+
+        
+
+        <!-- Seçilmiş Kombin -->
+         <!-- <section class="">
+             <h2>✅ Sənin Kombinin</h2>
+             <div id="kombin" class="slider">
+                 <img id="kombin-papaq" src="">
+                 <img id="kombin-koynek" src="">
+                 <img id="kombin-salvar" src="">
+                 <img id="kombin-ayaqqabi" src="">
+                 <img id="kombin-saat" src="">
+                 <img id="kombin-eynek" src="">
+                 <img id="kombin-canta" src="">
+             </div>
+         </section> -->
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
