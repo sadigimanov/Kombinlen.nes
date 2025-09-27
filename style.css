@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
+  background-color: #f4f4f4; ;
 }
 
 /* Ortada saxlamaq */
@@ -38,15 +38,16 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  background-color: transparent;
 }
 
 .slider img {
   width: 250px;       /* sabit en */
   height: 250px;      /* sabit hündürlük */
   object-fit: contain; /* şəkil əyilməsin */
-  border: 1px solid #ddd;
+  border: 3px solid #ddd;
   border-radius: 8px;
-  background: #f4f4f4; /* şəkil kiçik olsa arxa fon görünsün */
+  
 }
 
 .accessories {
@@ -57,7 +58,7 @@ h1 {
 }
 
 .section {
-  background: white;
+  
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 8px;
@@ -104,10 +105,9 @@ button:hover {
   background: #0056b3;
 }
 
-#final-combination {
+/* #final-combination {
   margin-top: 30px;
   padding: 20px;
-  background: #fff;
   border: 2px solid #007bff;
   border-radius: 8px;
   text-align: center;
@@ -126,7 +126,7 @@ button:hover {
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
-}
+} */
 
 /* 📱 Responsive dizayn */
 @media (max-width: 768px) {
