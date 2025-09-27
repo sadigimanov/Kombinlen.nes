@@ -1,3 +1,6 @@
+// Kateqoriyalar
+const categories = ["papaq", "koynek", "salvar", "ayaqqabi", "saat", "eynek", "canta"];
+
 // Hər geyim üçün şəkil siyahıları
 let clothes = {
   papaq: [],
@@ -20,13 +23,13 @@ let indexes = {
   canta: 0
 };
 
-// LocalStorage-dan yükləmə
+// ✅ LocalStorage-dan yükləmə
 window.onload = () => {
   const saved = localStorage.getItem("clothesData");
   if (saved) {
     clothes = JSON.parse(saved);
-    for (let type in clothes) {
-      if (clothes[type].length > 0) {
+    for (let type of categories) {
+      if (clothes[type] && clothes[type].length > 0) {
         indexes[type] = 0;
         updateDisplay(type);
       }
@@ -34,17 +37,17 @@ window.onload = () => {
   }
 };
 
-// LocalStorage-a saxlama
+// ✅ LocalStorage-a saxlama
 function saveData() {
   localStorage.setItem("clothesData", JSON.stringify(clothes));
 }
 
-// Şəkil yükləmə
+// ✅ Şəkil yükləmə
 function uploadImage(event, type) {
   const file = event.target.files[0];
   if (!file) return;
   const reader = new FileReader();
-  reader.onload = function(e) {
+  reader.onload = function (e) {
     clothes[type].push(e.target.result);
     indexes[type] = clothes[type].length - 1;
     updateDisplay(type);
@@ -53,16 +56,19 @@ function uploadImage(event, type) {
   reader.readAsDataURL(file);
 }
 
-// Şəkil göstərmə
+// ✅ Şəkil göstərmə
 function updateDisplay(type) {
   const display = document.getElementById(type + "-display");
   if (clothes[type].length > 0) {
     display.src = clothes[type][indexes[type]];
     document.getElementById("kombin-" + type).src = clothes[type][indexes[type]];
+  } else {
+    display.src = "";
+    document.getElementById("kombin-" + type).src = "";
   }
 }
 
-// Növbəti şəkil
+// ✅ Növbəti şəkil
 function next(type) {
   if (clothes[type].length === 0) return;
   indexes[type] = (indexes[type] + 1) % clothes[type].length;
@@ -70,7 +76,7 @@ function next(type) {
   saveData();
 }
 
-// Əvvəlki şəkil
+// ✅ Əvvəlki şəkil
 function prev(type) {
   if (clothes[type].length === 0) return;
   indexes[type] = (indexes[type] - 1 + clothes[type].length) % clothes[type].length;
@@ -78,37 +84,31 @@ function prev(type) {
   saveData();
 }
 
-
-
-// silmek ucun
+// ✅ Şəkli silmək
 function deleteImage(type) {
   if (clothes[type].length === 0) return;
 
   // Cari şəkli sil
-  clothes[type].splice(currentIndex[type], 1);
+  clothes[type].splice(indexes[type], 1);
 
   // Index düzəlt
-  if (currentIndex[type] >= clothes[type].length) {
-    currentIndex[type] = clothes[type].length - 1;
+  if (indexes[type] >= clothes[type].length) {
+    indexes[type] = clothes[type].length - 1;
   }
-  if (currentIndex[type] < 0) {
-    currentIndex[type] = 0;
+  if (indexes[type] < 0) {
+    indexes[type] = 0;
   }
 
-  // LocalStorage-a yaz
-  localStorage.setItem("clothes", JSON.stringify(clothes));
+  // Əgər şəkil qalmayıbsa boş göstər
+  if (clothes[type].length === 0) {
+    document.getElementById(type + "-display").src = "";
+    document.getElementById("kombin-" + type).src = "";
+  } else {
+    updateDisplay(type);
+  }
 
-  // Yenidən göstər
-  showImage(type);
+  // ⚡ LocalStorage-da da saxla
+  saveData();
 }
 
 
-// function showImage(type) {
-//   let imgElement = document.getElementById(type + "-img");
-//   if (clothes[type].length > 0) {
-//     imgElement.src = clothes[type][currentIndex[type]];
-//   } else {
-//     imgElement.src = "";
-//     imgElement.alt = "Şəkil yoxdur";
-//   }
-// }
